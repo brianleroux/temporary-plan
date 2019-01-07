@@ -4,7 +4,7 @@ module.exports = async function slack(req) {
   
   // trade the code for an access token
   let result = await tiny.get({
-    url: `https://slack.com/api/oauth.access`
+    url: `https://slack.com/api/oauth.access`,
     data: {
       client_id: process.env.SLACK_CLIENT_ID,
       client_secret: process.env.SLACK_CLIENT_SECRET,
@@ -16,7 +16,7 @@ module.exports = async function slack(req) {
   
   // get the user account 
   let account = await tiny.get({
-    url: 'https://slack.com/api/users.identity'
+    url: 'https://slack.com/api/users.identity',
     data: {token}
   })
   
