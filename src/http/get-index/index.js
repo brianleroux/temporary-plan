@@ -1,9 +1,7 @@
-// Learn how to use secure sessions, middleware, and more:
-// https://docs.begin.com/en/functions/http/
-
 let begin = require('@architect/functions')
 
 function render(session) { 
+  let slack = `<a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team,identity.avatar&client_id=${process.env.SLACK_CLIENT_ID}"><img alt="Sign in with Slack" height="40" width="172" src="https://platform.slack-edge.com/img/sign_in_with_slack.png" srcset="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x" /></a>`
   let login = `<a href=https://github.com/login/oauth/authorize?redirect_url=${process.env.GITHUB_REDIRECT}&client_id=${process.env.GITHUB_CLIENT_ID}>login with github</a>`
   let logout = `<a href=/logout>logout</a>`
   return `
