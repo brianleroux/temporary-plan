@@ -19,7 +19,7 @@ exports.handler = async function http(req) {
   
   // use the access token to get the user account
   let user = await tiny.get({
-    url: `https://api.github.com/user?access_token=${access_token}`,
+    url: `https://api.github.com/user?access_token=${token}`,
     headers: {Accept: 'application/json'},
   })
   
