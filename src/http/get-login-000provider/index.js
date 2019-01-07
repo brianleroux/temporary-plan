@@ -1,5 +1,4 @@
 let begin = require('@architect/functions')
-let tiny = require('tiny-json-http')
 let github = require('./github')
 let slack = require('./slack')
 
