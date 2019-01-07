@@ -4,6 +4,7 @@ meadow-x0f
 @http
 get /
 get /login/:provider
+get /logout
 
 @tables
 data
