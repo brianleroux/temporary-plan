@@ -1,0 +1,7 @@
+{
+  "name": "begin-app-get-login-000provider",
+  "dependencies": {
+    "@architect/functions": "latest",
+    "@begin/data": "latest"
+  }
+}
