@@ -4,6 +4,8 @@
 let begin = require('@architect/functions')
 
 function render(session) { 
+  let login = `<a href=https://github.com/login/oauth/authorize?redirect_url=${process.env.GITHUB_REDIRECT}&client_id=${process.env.GITHUB_CLIENT_ID}>login with github</a>`
+  let logout = `<a href=/logout>logout</a>`
   return `
 <!doctype html>
 <html lang=en>
@@ -13,13 +15,10 @@ function render(session) {
     <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" rel="icon" type="image/x-icon">
   </head>
   <body>
-
-<a href=https://github.com/login/oauth/authorize?redirect_url=${process.env.GITHUB_REDIRECT}&client_id=${process.env.GITHUB_CLIENT_ID}>login with github</a>
-
+${session.hasOwnProperty('account')? logout : login}
 <pre>${JSON.stringify(session, null, 2)}</pre>
   </body>
-</html>
-`
+</html>`
 }
 
 exports.handler = async function http(req) {
