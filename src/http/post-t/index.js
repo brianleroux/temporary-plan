@@ -1,12 +1,14 @@
-// Enable secure sessions, express-style middleware, and more:
-// https://docs.begin.com/en/functions/http/
-//
-// let begin = require('@architect/functions')
-
 exports.handler = async function http(req) {
   console.log(req)
   return {
-    status: 302,
-    location: '/'
+    type: 'application/json; charset=utf8',
+    body: JSON.stringify({
+    "text": "It's 80 degrees right now.",
+    "attachments": [
+        {
+            "text":"Partly cloudy today and tomorrow"
+        }
+      ]
+    })
   }
 }
